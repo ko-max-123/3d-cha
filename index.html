@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>スマホ用CAPTCHA</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #container {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    #start-screen {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #main-screen {
+      display: none;
+      flex-direction: column;
+      width: 100vw;
+      height: 100vh;
+    }
+    #threejs-container {
+      height: 60vh; /* 上を5分の3に */
+    }
+    #input-area {
+      height: 40vh; /* 下を5分の2に */
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      padding-top: 5vh;
+    }
+    h2 {
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-align: center;
+      margin: 10px 0;
+    }
+    #result {
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-align: center;
+      margin: 10px 0;
+      display: none;
+    }
+    #correctAnswer {
+      font-size: 1rem;
+      color: red;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 10px;
+      display: none;
+    }
+    input, textarea {
+      font-size: 1rem;
+      padding: 10px;
+      width: 80%;
+      max-width: 300px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      margin: 8px 0;
+      box-sizing: border-box;
+      text-align: center;
+    }
+    textarea {
+      height: 100px;
+    }
+    button {
+      font-size: 1rem;
+      padding: 8px 16px;
+      border: none;
+      background-color: #007bff;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+      margin: 8px 0;
+      min-width: 100px;
+      width: auto;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .link-button {
+      display: inline-block;
+      font-size: 0.95rem;
+      color: #007bff;
+      text-decoration: none;
+      margin-top: 10px;
+    }
+    .link-button:hover {
+      text-decoration: underline;
+    }
+    #feedback,
+    #finishButton,
+    #result,
+    #correctAnswer {
+      display: none;
+    }
+    #thank-you {
+      display: none;
+      width: 100vw;
+      height: 100vh;
+      background-color: #ffffff;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-align: center;
+    }
+  </style>
+  <script type="module" crossorigin src="./assets/main-BMilc26R.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/modulepreload-polyfill-B5Qt9EMX.js">
+</head>
+<body>
+  <div id="container">
+    <div id="start-screen">
+      <div style="text-align: center;">
+        <button id="startButton">スタート</button>
+        <br />
+        <a class="link-button" href="./analyzer.html" hidden>操作ログを解析する</a>
+      </div>
+    </div>
+
+    <div id="main-screen">
+      <div id="threejs-container"></div>
+      <div id="input-area">
+        <h2 id="instruction">見えた文字を入力してください</h2>
+        <input type="text" id="userInput" />
+        <button id="submitButton">判定</button>
+        <div id="result"></div>
+        <div id="correctAnswer"></div>
+        <textarea id="feedback" placeholder="感想を入力してください"></textarea>
+        <button id="finishButton">終了</button>
+      </div>
+    </div>
+
+    <div id="thank-you">ご協力ありがとうございました</div>
+  </div>
+
+</body>
+</html>
