@@ -12,16 +12,18 @@
       font-family: sans-serif;
       width: 100%;
       height: 100%;
-      overflow: hidden;
-      overscroll-behavior: none;
-      touch-action: none;
     }
     body {
-      position: fixed;
-      inset: 0;
       display: flex;
       justify-content: center;
       align-items: center;
+    }
+    body.model-active {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      overscroll-behavior: none;
+      touch-action: none;
     }
     #container {
       width: 100vw;
@@ -147,7 +149,7 @@
       text-align: center;
     }
   </style>
-  <script type="module" crossorigin src="./assets/main-DZa8A1QL.js"></script>
+  <script type="module" crossorigin src="./assets/main-CygIveIs.js"></script>
   <link rel="modulepreload" crossorigin href="./assets/modulepreload-polyfill-B5Qt9EMX.js">
 </head>
 <body>
@@ -156,7 +158,9 @@
       <div style="text-align: center;">
         <button id="startButton">Start</button>
         <br />
+        <!--
         <a class="link-button" href="./analyzer.html" hidden>Analyze Operation Log</a>
+        -->
       </div>
     </div>
 
