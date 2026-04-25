@@ -138,6 +138,8 @@
       width: 100vw;
       height: 100dvh;
       background-color: #ffffff;
+      flex-direction: column;
+      gap: 16px;
       justify-content: center;
       align-items: center;
       font-size: 1.5rem;
@@ -145,7 +147,7 @@
       text-align: center;
     }
   </style>
-  <script type="module" crossorigin src="./assets/main-BAZAvjEc.js"></script>
+  <script type="module" crossorigin src="./assets/main-DZa8A1QL.js"></script>
   <link rel="modulepreload" crossorigin href="./assets/modulepreload-polyfill-B5Qt9EMX.js">
 </head>
 <body>
@@ -154,9 +156,7 @@
       <div style="text-align: center;">
         <button id="startButton">Start</button>
         <br />
-        <!--
         <a class="link-button" href="./analyzer.html" hidden>Analyze Operation Log</a>
-      -->
       </div>
     </div>
 
@@ -173,7 +173,10 @@
       </div>
     </div>
 
-    <div id="thank-you">Thank you for your participation.</div>
+    <div id="thank-you">
+      <div>Thank you for your participation.</div>
+      <button id="restartButton" type="button">Back to Start</button>
+    </div>
   </div>
 
 </body>
