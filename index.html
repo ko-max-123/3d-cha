@@ -1,21 +1,33 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>スマホ用CAPTCHA</title>
+  <title>Mobile CAPTCHA</title>
   <style>
+    html,
     body {
       margin: 0;
+      padding: 0;
       font-family: sans-serif;
-      height: 100vh;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      overscroll-behavior: none;
+      touch-action: none;
+    }
+    body {
+      position: fixed;
+      inset: 0;
       display: flex;
       justify-content: center;
       align-items: center;
     }
     #container {
       width: 100vw;
-      height: 100vh;
+      height: 100dvh;
+      max-width: 100vw;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
     }
@@ -29,19 +41,29 @@
       display: none;
       flex-direction: column;
       width: 100vw;
-      height: 100vh;
+      height: 100dvh;
+      overflow: hidden;
     }
     #threejs-container {
-      height: 60vh; /* 上を5分の3に */
+      width: 100vw;
+      height: 60vh; /* Top three-fifths */
+      height: 60dvh;
+      overflow: hidden;
+      touch-action: none;
+      overscroll-behavior: none;
+      user-select: none;
     }
     #input-area {
-      height: 40vh; /* 下を5分の2に */
+      height: 40vh; /* Bottom two-fifths */
+      height: 40dvh;
       width: 100vw;
+      max-width: 100vw;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       align-items: center;
       padding-top: 5vh;
+      overflow: hidden;
     }
     h2 {
       font-size: 1.2rem;
@@ -65,6 +87,7 @@
       display: none;
     }
     input, textarea {
+      touch-action: manipulation;
       font-size: 1rem;
       padding: 10px;
       width: 80%;
@@ -79,6 +102,7 @@
       height: 100px;
     }
     button {
+      touch-action: manipulation;
       font-size: 1rem;
       padding: 8px 16px;
       border: none;
@@ -112,7 +136,7 @@
     #thank-you {
       display: none;
       width: 100vw;
-      height: 100vh;
+      height: 100dvh;
       background-color: #ffffff;
       justify-content: center;
       align-items: center;
@@ -121,33 +145,33 @@
       text-align: center;
     }
   </style>
-  <script type="module" crossorigin src="./assets/main-C43OR8sr.js"></script>
+  <script type="module" crossorigin src="./assets/main-BAZAvjEc.js"></script>
   <link rel="modulepreload" crossorigin href="./assets/modulepreload-polyfill-B5Qt9EMX.js">
 </head>
 <body>
   <div id="container">
     <div id="start-screen">
       <div style="text-align: center;">
-        <button id="startButton">スタート</button>
+        <button id="startButton">Start</button>
         <br />
-<!--<a class="link-button" href="./analyzer.html" hidden>操作ログを解析する</a>-->
+        <a class="link-button" href="./analyzer.html" hidden>Analyze Operation Log</a>
       </div>
     </div>
 
     <div id="main-screen">
       <div id="threejs-container"></div>
       <div id="input-area">
-        <h2 id="instruction">見えた文字を入力してください</h2>
+        <h2 id="instruction">Enter the characters you see</h2>
         <input type="text" id="userInput" />
-        <button id="submitButton">判定</button>
+        <button id="submitButton">Submit</button>
         <div id="result"></div>
         <div id="correctAnswer"></div>
-        <textarea id="feedback" placeholder="感想を入力してください"></textarea>
-        <button id="finishButton">終了</button>
+        <textarea id="feedback" placeholder="Optional feedback"></textarea>
+        <button id="finishButton">Finish</button>
       </div>
     </div>
 
-    <div id="thank-you">ご協力ありがとうございました</div>
+    <div id="thank-you">Thank you for your participation.</div>
   </div>
 
 </body>

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>操作ログ解析</title>
+  <title>Operation Log Analyzer</title>
   <style>
     :root {
       color-scheme: light;
@@ -208,30 +208,30 @@
       }
     }
   </style>
-  <script type="module" crossorigin src="./assets/analyzer-CZXS6Nyk.js"></script>
+  <script type="module" crossorigin src="./assets/analyzer-DrLejaIZ.js"></script>
   <link rel="modulepreload" crossorigin href="./assets/modulepreload-polyfill-B5Qt9EMX.js">
 </head>
 <body>
   <main>
     <header>
-      <h1>操作ログ解析</h1>
-      <p class="muted">CAPTCHA 操作ログのテキストファイルを入力すると、時間配分・方向傾向・ドラッグ単位の分析ビューを生成します。</p>
+      <h1>Operation Log Analyzer</h1>
+      <p class="muted">Upload a CAPTCHA operation log text file to generate an analysis view with timing, direction trends, and per-drag details.</p>
     </header>
 
     <section class="panel">
       <div class="input-grid">
         <div>
-          <label for="logFile">ログファイルを選択</label>
+          <label for="logFile">Select Log File</label>
           <input id="logFile" type="file" accept=".txt,text/plain" />
           <div class="actions">
-            <button id="analyzeButton" type="button">解析する</button>
-            <button id="clearButton" class="secondary" type="button">入力を消す</button>
+            <button id="analyzeButton" type="button">Analyze</button>
+            <button id="clearButton" class="secondary" type="button">Clear</button>
           </div>
-          <p id="status" class="muted">ログファイルを選ぶか、右側にログ本文を貼り付けてください。</p>
+          <p id="status" class="muted">Choose a log file or paste the log text on the right.</p>
         </div>
         <div>
-          <label for="logText">ログ本文</label>
-          <textarea id="logText" placeholder="captcha-operation-log-*.txt の内容を貼り付け"></textarea>
+          <label for="logText">Log Text</label>
+          <textarea id="logText" placeholder="Paste the contents of captcha-operation-log-*.txt"></textarea>
         </div>
       </div>
     </section>
@@ -244,37 +244,37 @@
       <div id="summaryStats" class="stats"></div>
 
       <section class="panel">
-        <h2>結論</h2>
+        <h2>Findings</h2>
         <div id="findings"></div>
         <div class="actions">
-          <button id="downloadAnalysisButton" type="button">分析結果をテキスト保存</button>
+          <button id="downloadAnalysisButton" type="button">Save Analysis as Text</button>
         </div>
       </section>
 
       <section class="panel">
-        <h2>時間配分</h2>
+        <h2>Time Allocation</h2>
         <div id="timelineTable"></div>
       </section>
 
       <section class="two-column">
         <div class="panel">
-          <h2>方向の偏り</h2>
+          <h2>Direction Bias</h2>
           <div id="directionTable"></div>
         </div>
         <div class="panel">
-          <h2>読み取り方</h2>
+          <h2>Interpretation</h2>
           <div id="interpretation"></div>
         </div>
       </section>
 
       <section class="panel">
-        <h2>ドラッグごとの内訳</h2>
+        <h2>Per-Drag Breakdown</h2>
         <div id="dragTable"></div>
       </section>
 
       <section class="panel">
-        <h2>注意点</h2>
-        <p class="muted">推定回転回数と累積回転角度は、ログ中の touchmove に記録された回転量から計算しています。指を離した後の慣性回転は十分に含まれない場合があります。</p>
+        <h2>Notes</h2>
+        <p class="muted">Estimated rotation count and total rotation angle are calculated from the rotation values recorded in touchmove events. Inertial rotation after releasing the finger may not be fully included.</p>
       </section>
     </section>
   </main>
